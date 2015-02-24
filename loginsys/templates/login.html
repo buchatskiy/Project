@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Вход на сайт{% endblock %}
+
+
+{% block content %}
+<div id="forms">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="username">Логин</label>
+        <input type="text" name="username" id="username">
+        <label for="password">Пароль</label>
+        <input type="password" name="password" id="password">
+        {% if login_error %}
+            <label class="error">{{ login_error }}</label>
+        {% endif %}
+        <input class="button" type="submit" value="Войти">
+        <a href="/auth/register/">Регистрация нового пользователя</a>
+    </form>
+</div>
+{% endblock %}

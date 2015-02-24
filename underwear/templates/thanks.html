@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block meta %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+{% endblock %}
+{% block title %}Спасибо за заказ!{% endblock %}
+{% block content %}
+    <div id="cart_table">
+        <h2>Спасибо, что Вы выбрали именно наш магазин!</h2>
+        <h3>Ваш заказ:</h3>
+        <table><tr>
+        <td><b>№</b></td>
+        <td><b>Серия</b></td>
+        <td><b>Размер</b></td>
+        <td><b>Модель №</b></td>
+        <td><b>Количество</b></td>
+        <td><b>Стоимость, грн</b></td>
+        <td><b>Сумма, грн</b></td>
+        </tr>
+            {%  for k in cart %}<tr>
+                <td>{{ k.0 }}</td>
+                <td>{{ k.1 }}</td>
+                <td>{{ k.2 }}</td>
+                <td>{{ k.3 }}</td>
+                <td>{{ k.4 }}</td>
+                <td>{{ k.5 }}</td>
+                <td>{{ k.6 }}</td>
+                </tr>
+            {% endfor %}
+        <tr><td colspan="6"><div class='right'><b>Итого сумма заказа:</b></div></td><td><b>{{ summ }} грн </b></td></tr>
+        </table>
+        <h3>В ближайшее время с Вами свяжется наш менеджер.</h3>
+    </div>
+{% endblock %}

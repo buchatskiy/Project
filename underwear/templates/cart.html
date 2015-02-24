@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block meta %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+{% endblock %}
+{% block title %}Корзина - Мужское белье купить в Украине с доставкой{% endblock %}
+
+
+{% block content %}
+{% if delivery == 0 %}
+    {% if summ == 0 %}
+        <div id="cart_table"><h2>Вы еще ничего не заказали :(</h2></div>
+        <div class="main"><h6><p align="center">Для заказа перейдите в раздел <a href="/ALL/page/1/">Мужское белье</a></p></h6></div>
+    {% else %}
+        <div id="cart_table">
+        <h2>Ваша корзина:</h2>
+        <table><tr>
+        <td><b>№</b></td>
+        <td><b>Серия</b></td>
+        <td><b>Размер</b></td>
+        <td><b>Модель №</b></td>
+        <td><b>Количество</b></td>
+        <td><b>Стоимость, грн</b></td>
+        <td><b>Сумма, грн</b></td>
+        <td></td></tr>
+            {%  for k in cart %}<tr>
+                <td>{{ k.0 }}</td>
+                <td>{{ k.1 }}</td>
+                <td>{{ k.2 }}</td>
+                <td>{{ k.3 }}</td>
+                <td>{{ k.4 }}</td>
+                <td>{{ k.5 }}</td>
+                <td>{{ k.6 }}</td>
+                <td>
+                    <form action="/del_item/" method="get">
+                        <input type="hidden" name="item_id" id="item_id" value={{ k.0 }}>
+                        <input class="button" type="submit" value="" title="Удалить элемент">
+                    </form>
+                </td>
+                </tr>
+            {% endfor %}
+        <tr><td colspan="6"><div class='right'><b>Итого сумма заказа:</b></div></td><td><b>{{ summ }} грн </b></td><td>
+                    <form action="/clean/" method="get">
+                        <input class="button" type="submit" value="" title="Очистить корзину">
+                    </form></td></tr>
+        </table>
+        </div>
+        <div id="forms">
+        <form method="get" action="/cart1/">
+            <input class="button" type="submit" value="Оформить заказ">
+        </form></div>
+    {% endif %}
+    {% else %}
+        {% if delivery == 1 %}
+            <div class="shipping"><input type="radio" name="shipping" id="shipping1" onclick='check_value(this, 1, "4", "shipping")' onchange="location.href ='/cart1/'" checked/><label for="shipping1">Доставка Новой Почтой</label></div>
+            <div class="shipping"><input type="radio" name="shipping" id="shipping2" onclick='check_value(this, 2, "4", "shipping")' onchange="location.href ='/cart2/'"/><label for="shipping2">Доставка курьером по Киеву</label></div>
+            <div id="forms">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    {% if delivery == 1 %}<label class="helptext">* - при выборе данного способа оплаты доставка выходит дешевле</label>{% endif %}
+                    {% if delivery == 2 %}<label class="helptext">* - поля обязательные к заполнению</label>{% endif %}
+                    <input class="button" type="submit" value="Подтвердить заказ">
+                </form>
+            </div>
+        {% endif %}
+        {% if delivery == 2 %}
+            <div class="shipping"><input type="radio" name="shipping" id="shipping1" onclick='check_value(this, 1, "4", "shipping")' onchange="location.href ='/cart1/'"/><label for="shipping1">Доставка Новой Почтой</label></div>
+            <div class="shipping"><input type="radio" name="shipping" id="shipping2" onclick='check_value(this, 2, "4", "shipping")' onchange="location.href ='/cart2/'" checked/><label for="shipping2">Доставка курьером по Киеву</label></div>
+            <div id="forms">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    {% if delivery == 1 %}<label class="helptext">* - при выборе данного способа оплаты доставка выходит дешевле</label>{% endif %}
+                    {% if delivery == 2 %}<label class="helptext">* - поля обязательные к заполнению</label>{% endif %}
+                    <input class="button" type="submit" value="Подтвердить заказ">
+                </form>
+            </div>
+        {% endif %}
+{% endif %}
+
+
+{% endblock %}

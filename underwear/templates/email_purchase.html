@@ -1,0 +1,33 @@
+Новый заказ {{ new_purchase_number }}!
+<h2>Заказ:</h2>
+<table><tr>
+<td><b>№</b></td>
+<td><b>Серия</b></td>
+<td><b>Размер</b></td>
+<td><b>Модель №</b></td>
+<td><b>Количество</b></td>
+<td><b>Стоимость, грн</b></td>
+<td><b>Сумма, грн</b></td></tr>
+    {%  for k in cart %}<tr>
+        <td>{{ k.0 }}</td>
+        <td>{{ k.1 }}</td>
+        <td>{{ k.2 }}</td>
+        <td>{{ k.3 }}</td>
+        <td>{{ k.4 }}</td>
+        <td>{{ k.5 }}</td>
+        <td>{{ k.6 }}</td></tr>
+    {% endfor %}
+<tr><td colspan="6"><b>Итого сумма заказа:</b></td><td><b>{{ summ }} грн </b></td></tr></table>
+<p><b>Информация о заказе:</b></p>
+
+<p>Номер заказа: {{ purchase_number }}</p>
+<p>Имя: {{ first_name }}</p>
+<p>Фамилия: {{ last_name }}</p>
+<p>Номер телефона: {{ phone_number }}</p>
+<p>Город: {{ city }}</p>
+<p>Сума заказа: {{ totalprice }}</p>
+<p>Мужское белье: {{ underwear }}</p>
+<p>№ почтового отделения: {{ post_office }}</p>
+<p>Способ оплаты: {{ divisions }}</p>
+<p>Комментарий: {{ comment }}</p>
+

@@ -1,0 +1,323 @@
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    body, td, th {
+        font-size: 42px;
+    }
+    #pages {
+        width: 420px;
+        margin-bottom: -46px;
+    }
+    #footer {
+        height: 46px;
+        width: 420px;
+    }
+    #content .push {
+	    height: 46px;
+    }
+    #topmenu ul li {
+        line-height: 21px;
+        height: 21px;
+        padding-right: 2.3%;
+        padding-left: 2.3%;
+    }
+    #topmenu {
+        height: 21px;
+        padding-top: 63px;
+    }
+    #sizes ul li {
+        height: 15px;
+        line-height: 15px;
+    }
+    #sizes ul a {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+    #content .items {
+        height: 151px;
+	}
+    #content .items h1 {
+        bottom: 8px;
+        left: 8px;
+    }
+    #content .items h3 {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    #content .items input {
+        right: 8px;
+        bottom: 8px;
+    }
+    #cart_table table tr td .button {
+        height: 6px;
+        width: 6px;
+    }
+    #forms form input {
+        height: 17px;
+    }
+    #vkfbin {
+        top: 6px;
+        right: 8px;
+    }
+    #korzina {
+        top: 40px;
+    }
+    #logo a img{
+        width: 42%;
+    }
+    #phones {
+        top: 25px;
+    }
+    .vkfbinst a img {
+        height: 25%;
+        width: 25%;
+    }
+}
+@media screen and (min-width: 801px) and (max-width: 1280px) {
+    body,td,th {
+        font-size: 66px;
+    }
+    #pages {
+        width: 660px;
+        margin-bottom: -73px;
+    }
+    #footer {
+        height: 73px;
+        width: 660px;
+    }
+    #content .push {
+	    height: 73px;
+    }
+    #topmenu ul li {
+        line-height: 33px;
+        height: 33px;
+        padding-right: 2.3%;
+        padding-left: 2.3%;
+    }
+    #topmenu {
+        height: 33px;
+        padding-top: 100px;
+    }
+    #sizes ul li {
+        height: 23px;
+        line-height: 23px;
+    }
+    #sizes ul a {
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+    #content .items {
+        height: 238px;
+	}
+    #content .items h1 {
+        bottom: 12px;
+        left: 12px;
+    }
+        #content .items h3 {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    #content .items input {
+        right: 12px;
+        bottom: 12px;
+    }
+    #cart_table table tr td .button {
+        height: 10px;
+        width: 10px;
+    }
+    #forms form input {
+        height: 26px;
+    }
+    #vkfbin {
+        top: 10px;
+        right: 13px;
+    }
+    #korzina {
+        top: 63px;
+    }
+    #logo a img{
+        width: 66%;
+    }
+    #phones {
+        top: 40px;
+    }
+}
+@media screen and (min-width: 1281px) and (max-width: 1680px) {
+    body,td,th {
+        font-size: 88px;
+    }
+    #pages {
+        width: 880px;
+        margin-bottom: -96px;
+    }
+    #footer {
+        height: 96px;
+        width: 880px;
+    }
+    #content .push {
+	    height: 96px;
+    }
+    #topmenu ul li {
+        line-height: 43px;
+        height: 43px;
+    }
+    #topmenu {
+        height: 43px;
+        padding-top: 131px;
+    }
+    #sizes ul li {
+        height: 30px;
+        line-height: 30px;
+    }
+    #sizes ul a {
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+    #content .items {
+        height: 315px;
+	}
+    #content .items h1 {
+        bottom: 12px;
+        left: 16px;
+    }
+    #content .items input {
+        right: 16px;
+        bottom: 12px;
+    }
+    #cart_table table tr td .button {
+        height: 13px;
+        width: 13px;
+    }
+    #forms form input {
+        height: 35px;
+    }
+    #vkfbin {
+        top: 13px;
+        right: 17px;
+    }
+    #korzina {
+        top: 83px;
+    }
+    #logo a img{
+        width: 88%;
+    }
+    #phones {
+        top: 52px;
+    }
+}
+
+@media screen and (min-width: 1921px) and (max-width: 2560px) {
+    body,td,th {
+        font-size: 130px;
+    }
+    #pages {
+        width: 1300px;
+        margin-bottom: -146px;
+    }
+    #footer {
+        height: 146px;
+        width: 1300px;
+    }
+    #content .push {
+	    height: 146px;
+    }
+    #topmenu ul li {
+        line-height: 65px;
+        height: 65px;
+    }
+    #topmenu {
+        height: 65px;
+        padding-top: 200px;
+    }
+    #sizes ul li {
+        height: 46px;
+        line-height: 46px;
+    }
+    #sizes ul a {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+    #content .items {
+	    height: 479px;
+	}
+    #cart_table table tr td .button {
+        height: 20px;
+        width: 20px;
+    }
+    #forms form input {
+        height: 53px;
+    }
+    #vkfbin {
+        top: 10px;
+        right: 27px;
+    }
+    #korzina {
+        top: 126px;
+    }
+    #logo a img{
+        width: 133%;
+    }
+    #phones {
+        top: 80px;
+    }
+}
+@media screen and (min-width: 2561px) and (max-width: 3840px) {
+    body,td,th {
+        font-size: 200px;
+    }
+    #pages {
+        width: 2000px;
+        margin-bottom: -220px;
+    }
+    #footer {
+        height: 220px;
+        width: 2000px;
+    }
+    #content .push {
+	    height: 220px;
+    }
+    #topmenu ul li {
+        line-height: 100px;
+        height: 100px;
+    }
+    #topmenu {
+        height: 100px;
+        padding-top: 300px;
+    }
+    #sizes ul li {
+        height: 70px;
+        line-height: 70px;
+    }
+    #sizes ul a {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    #content .items {
+	    height: 720px;
+	}
+    #cart_table table tr td .button {
+        height: 30px;
+        width: 30px;
+    }
+    #forms form input {
+        height: 80px;
+    }
+    #vkfbin {
+        top: 30px;
+        right: 40px;
+    }
+    #korzina {
+        top: 190px;
+    }
+    #logo a img{
+        width: 200%;
+    }
+    #phones {
+        top: 120px;
+    }
+}
+
+
+
+
+
+

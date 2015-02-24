@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block meta %}
+    <meta name="description" content="Информация и условия про действующие акции и скидки на мужские трусы боксерки Calvin Klein.">
+    <meta name="keywords" content="акции, скидки, бесплатная доставка, день рождения">
+{% endblock %}
+{% block title %}Акции - Мужское белье купить в Украине с доставкой{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <h1>Акции</h1>
+        <hr>
+        <h4>1. При условии регистрации на сайте скидка на все <strong>белье</strong> составляет <b>5%</b>!</h4>
+        <h4>2. При покупке 7 и более единиц <strong>мужского белья</strong> - <div class="blue"><strong>бесплатная доставка</strong></div>!*</h4>
+        <div class="promotion"><p> <img src="{% static "img/promotion1.png" %}" align="left" alt="При покупке 7 и более единиц мужского белья - бесплатная доставка"/></p></div>
+        <h4>3. Только в Ваш День Рождения** <div class="blue">2+2=5</div>!!! Пятая <strong>пара боксерок</strong> в подарок!</h4>
+        <div class="promotion"><img src="{% static "img/promotion2.png" %}" align="left" alt="В Ваш День Рождения пятая пара боксерок в подарок"/></div>
+    </div>
+{% endblock %}

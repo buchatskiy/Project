@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block meta %}
+    <meta name="description" content="Как нас найти: адреса, телефоны, электронная почта, социальные сети.">
+    <meta name="keywords" content="контакты, адрес, телефоны, связь, e-mail, электронная почта, социальные сети, вконтакте, фейсбук, истаграм, facebook, instagram, карта">
+{% endblock %}
+{% block title %}Контакты - Мужское белье купить в Украине с доставкой{% endblock %}
+
+
+{% block content %}
+        <div class="main">
+            <h1>Контакты</h1>
+            <hr>
+        </div>
+<div class="push2"></div>
+<div class='two_column'>
+    <h4><p><b>Наши <strong><b>контакты</b></strong>:</b></p>
+    <p>&nbsp;&nbsp;(XXX) XXX-XX-XX</p>
+    <p>&nbsp;&nbsp;(XXX) XXX-XX-XX</p>
+    <br />
+    <p><b>e-mail:</b></p>
+    <p><a href="mailto:cklein.ua@gmail.com">cklein.ua@gmail.com</a></p>
+    <br />
+    <p><b>Мы в социальных сетях:</b></p>
+<div id="vkfbin2">
+  <a href="https://vk.com/cklein_ua" target="_blank"><img src="{% static "img/vk_2.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница вконтакте"></a>
+  <a href="https://www.facebook.com/profile.php?id=100004605825488" target="_blank"><img src="{% static "img/facebook.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница facebook"></a>
+  <a href="http://instagram.com/cklein.ua/" target="_blank"><img src="{% static "img/instagram.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница instagram"></a>
+</div>
+    <br />
+    <p><b>Есть вопросы или предложения?</b></p>
+    <p><b>Пишите нам:</b></p></h4>
+    <div id="forms2">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% if login_error.0 %}<label class="error">{{ login_error.0 }}</label>{% endif %}
+            <p>Имя:</p><input type="text" name="first_name" id="first_name" value={{ first_name }}>
+            {% if login_error.2 %}<label class="error">{{ login_error.2 }}</label>{% endif %}
+            <p>e-mail: </p><input type="email" name="email" id="email" value={{ email }}>
+            {% if login_error.1 %}<label class="error">{{ login_error.1 }}</label>{% endif %}
+            <p>Сообщение: </p><textarea name="comment" id="comment" rows="10">{{ comment }}</textarea>
+            <input class="button" type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+<div class='two_column'>
+    <h4><p><b>Также возможен <strong><b>самовывоз</b></strong> по предварительной договоренности:</p>
+    <br />
+    <p>1. Будние дни (пн-пт) с 09:30 до 16:30 по адресу: Киев, проспект Мира 13 (ориентир - Ощадбанк)</p>
+        <div class="push2"></div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2540.8091469068263!2d30.615900500000002!3d50.444655499999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c559268d7ac5%3A0x59c1089b6dd2cce8!2z0L_RgNC-0YHQvy4g0JzQuNGA0YMsIDEzLCDQmtC40ZfQsiwg0LzRltGB0YLQviDQmtC40ZfQsg!5e0!3m2!1suk!2sua!4v1422179502002" width="400" height="300" align="middle" frameborder="0" style="border:0"></iframe>
+    <div class="push2"></div>
+        <p>2. Выходные дни (сб, вс) с 09:30 до 16:30 по адресу: Киев, улица Щусева 32 (ориентир - магазин «3 метра»)</p>
+        <div class="push2"></div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2539.1559450513787!2d30.436738500000008!3d50.475440500000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cdb10332a7dd%3A0x258d74e880a89c2a!2z0LLRg9C7LiDQqdGD0YHRlNCy0LAsIDMyLCDQmtC40ZfQsiwg0LzRltGB0YLQviDQmtC40ZfQsg!5e0!3m2!1suk!2sua!4v1422181947647" width="400" height="300" align="middle" frameborder="0" style="border:0"></iframe>
+    </h4></div>
+{% endblock %}

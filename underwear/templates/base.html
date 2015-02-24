@@ -1,0 +1,159 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-language" content="ru">
+<meta name="DC.Creator" content="Дмитрий-Александр" />
+<meta name="DC.Date" scheme="ISO8601" content="2015-02-01" />
+<meta name="DC.Rights" content="Copyright 2015. Все права защищены." />
+<meta name="DC.Language" scheme="dcterms:RFC1766" content="RU" />
+{% block meta %}
+    {% if current_series == 'ALL' %}
+        <meta name="description" content="Мужское белье серии steel и серии 365 размеров M, L, XL. Отличное качество и приятные цены.">
+        <meta name="keywords" content="мужские трусы calvin klein, купить, серия steel, серия 365, размер, цена, стоимость, наличие">
+    {% else %}
+        {% if current_series == 'steel' %}
+            <meta name="description" content="Мужские трусы серии steel размеров M, L, XL. Отличное качество и приятные цены.">
+            <meta name="keywords" content="мужские трусы calvin klein, серия steel, размер, цена, стоимость, наличие">
+        {% else %}
+            <meta name="description" content="Мужские трусы серии 365 размеров M, L, XL. Отличное качество и приятные цены.">
+            <meta name="keywords" content="мужские боксеры calvin klein, серия 365, размер, цена, стоимость, наличие">
+        {% endif %}
+    {% endif %}
+{% endblock %}
+<title>{% block title %}
+    {% if current_series == 'ALL' %}
+        Мужское белье - Купить в Украине с доставкой
+    {% else %}
+        {% if current_series == 'steel' %}
+            Серия Steel - Купить в Украине с доставкой
+        {% else %}
+            Серия 365 - Купить в Украине с доставкой
+        {% endif %}
+    {% endif %}
+{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+<link rel="stylesheet" media="all" href="{% static "css/screen.css" %}" />
+<link href="{% static "img/ico.png" %}" rel="shortcut icon" type="image/png">
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div id="pages">
+  <div id="header">
+  <div id="logo"><a href="/" tabindex="1"><img src="{% static "img/logo_rus.gif" %}" width="331" height="140" alt="Интернет-магазин мужского нижнего белья Calvin Klein - Купить в Украине с доставкой "></a></div>
+  <div id="phones"><ul>
+  <li>(XXX) XXX-XX-XX</li>
+  <li>(XXX) XXX-XX-XX</li></ul>
+  </div>
+  <div id="korzina"><p>{% if username %}<a href="/auth/logout/" tabindex="6">Выйти {{ username }}</a>{% else %}<a href="/auth/login/" tabindex="5">Войти</a>/<a href="/auth/register/" tabindex="6">Регистрация</a>{% endif %}</p>
+  <a href="/cart/" tabindex="7">Корзина {% if summ != 0 %}({{ pieces }} шт. - {{ summ|floatformat:0 }} грн.){% else %}<div class="red">({{ pieces }} шт. - {{ summ }} грн.)</div>{% endif %}</a> <a href="/clean/" tabindex="8"><img src="{% static "img/recycle_bin.png" %}" width="15" height="15" title="Очистить корзину" align="center" alt="Очистить корзину"/></a>
+  </div>
+<div id="vkfbin">
+  <a href="https://vk.com/cklein_ua" target="_blank" tabindex="2"><img src="{% static "img/vk_2.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница вконтакте"></a>
+  <a href="https://www.facebook.com/profile.php?id=100004605825488" target="_blank" tabindex="3"><img src="{% static "img/facebook.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница facebook"></a>
+  <a href="http://instagram.com/cklein.ua/" target="_blank" tabindex="4"><img src="{% static "img/instagram.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница instagram"></a>
+</div>
+<div id="topmenu">
+  <ul><li><a href="/" tabindex="9">Главная</a></li><li><a href="/ALL/page/1/" tabindex="10">Мужское белье</a><ul><li><a href="/steel/page/1/" tabindex="11">Серия steel</a></li><li><a href="/365/page/1/" tabindex="12">Серия 365</a></li></ul></li><li><a href="/size_table/" tabindex="13">Подобрать размер</a></li><li><a href="/pay_delivery/" tabindex="14">Оплата и доставка</a></li><li><a href="/promotion/" tabindex="15">Акции</a></li><li><a href="/contacts/">Контакты</a></li></ul>
+  </div>
+  </div>
+
+<div id="content">
+{% block content %}
+<div id="sizes">
+<ul><li>Выбор размера: </li><li>{% if size == 'M' %}<a class="unavailable" href="">M</a>{% else %}<a href="/M/">M</a>{% endif %}</li><li>{% if size == 'L' %}<a class="unavailable" href="">L</a>{% else %}<a href="/L/">L</a>{% endif %}</li><li>{% if size == 'XL' %}<a class="unavailable" href="">XL</a>{% else %}<a href="/XL/">XL</a>{% endif %}</li></ul>
+</div>
+{% for t in text %}
+    <div class="items"><img src="static/media/{{ t.idu }}.jpg" alt="Мужское нижнее белье трусы боксеры Calvin Klein">
+    {% if t.series_id != 3 %}
+        <h2><strong>Мужские трусы боксеры</strong></h2>
+        <h3>Calvin Klein {{ t.series }}</h3>
+        <h3>Модель: №{{ t.idu }}</h3>
+        <h3>Размер: {{ size }}</h3>
+    {% else %}
+        <h2><strong>Бумажный подарочный пакет с ручками</strong></h2>
+        <h3>Calvin Klein</h3>
+    {% endif %}
+    {% if size == 'M' and t.availableM == 0 or size == 'L' and t.availableL == 0 or size == 'XL' and t.availableXL == 0 %}
+        {% for s, q in series.items %}
+                {% if t.series_id == s %}
+                    <h1>{{ q|floatformat:0 }} грн</h1>
+                {% endif %}
+        {% endfor %}
+        <div class="button_unavailable"><input class="button" type="submit" value="Нет в наличии"></div>
+    {% else %}
+        <form action="/buy/" method="get">
+            {% for s, q in series.items %}
+                {% if t.series_id == s %}
+                    <h1>{{ q|floatformat:0 }} грн</h1>
+                    <input type="hidden" name="price" id="price" value={{ q|floatformat:0 }}>
+                    <input type="hidden" name="series" id="series" value={{ t.series_id }}>
+                {% endif %}
+            {% endfor %}
+            <input type="hidden" name="underwear" id="underwear" value={{ t.idu }}>
+            {% if t.series_id == 3 %}<input type="hidden" name="underwear" id="underwear" value='package'>{% endif %}
+            <input type="hidden" name="size" id="size" value={{ size }}>
+            {% if t.series_id == 3 %}<input type="hidden" name="size" id="size" value='-'>{% endif %}
+            <input type="hidden" name="color" id="color" value={{ t.color }}>
+            <input type="hidden" name="current_page" id="current_page" value={{ current_page }}>
+            <input class="button" type="submit" value="Купить">
+        </form>
+    {% endif %}
+    </div>
+{% endfor %}
+
+
+<div id="page_number">
+        {% if text.has_previous %}
+             <a href="/{{ current_series }}/page/{{ text.previous_page_number }}/">&laquo;</a>
+        {% else %}
+             <a class="arrow unavailable">&laquo;</a>
+        {% endif %}
+        {% for page in text.paginator.page_range %}
+             &nbsp;
+             {% if page == text.number %}
+                  <a class="arrow unavailable">{{ page }}</a>
+             {% else %}
+                  <a href="/{{ current_series }}/page/{{ page }}/">{{ page }}</a>
+             {% endif %}
+        {% endfor %}
+        &nbsp;
+        {% if text.has_next %}
+             <a href="/{{ current_series }}/page/{{ text.next_page_number }}/">&raquo;</a>
+        {% else %}
+             <a class="arrow unavailable">&raquo;</a>
+        {% endif %}
+</div>
+{% endblock %}
+<div class="push"></div>
+</div>
+</div>
+
+<div id="footer">
+    <div class="rights"><p>&copy; 2015 Интернет-магазин мужского нижнего белья</p>
+        <p>Все права защищены</p>
+        <p>All rights reserved</p>
+    </div>
+    <div class="menu">
+        <ul><li><a href="/">О нас</a></li><li><a href="/ALL/page/1/">Мужское белье</a></li><li><a href="/size_table/">Подобрать размер</a></li><li><a href="/pay_delivery/">Оплата и доставка</a></li><li><a href="/promotion/">Акции</a></li><li><a href="/contacts/">Контакты</a></li></ul>
+   </div>
+   <div class="vkfbinst">
+       <a href="https://vk.com/cklein_ua" target="_blank"><img src="{% static "img/vk_1.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница вконтакте"></a>
+       <a href="https://www.facebook.com/profile.php?id=100004605825488" target="_blank"><img src="{% static "img/facebook_1.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница facebook"></a>
+       <a href="http://instagram.com/cklein.ua/" target="_blank"><img src="{% static "img/instagram_1.png" %}" width="24" height="24" alt="Интернет-магазин мужского нижнего белья Calvin Klein - наша страница instagram"></a>
+   </div>
+   <div class="phones">
+		<p>(XXX) XXX-XX-XX&nbsp;&nbsp;&nbsp;(XXX) XXX-XX-XX</p>
+   </div>
+</div>
+
+</body>
+</html>

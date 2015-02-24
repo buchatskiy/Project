@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block meta %}
+    <meta name="description" content="Подбор подходящего размера в таблице. График ориентировочного подбора размера относительно роста и веса.">
+    <meta name="keywords" content="подобрать размер трусов, M, L, XL, таблица размеров, рост, вес, обхват талии">
+{% endblock %}
+{% block title %}Подобрать размер - Мужское белье купить в Украине с доставкой{% endblock %}
+
+
+{% block content %}
+        <div class="main">
+            <h1>Подобрать размер</h1>
+            <hr>
+        </div>
+        <div id="cart_table">
+            <h3><strong>Подобрать</strong> подходящий <strong>размер нижнего белья</strong> Вы можете согласно таблице, приведенной ниже:</h3>
+            <table>
+            <tr><td><b>Размер</b></td><td><b>Обхват талии на уровне резинки*, см</b></td><td><b>Рост, см</b></td><td><b>Вес, кг</b></td></tr>
+            <tr><td><b>M</b></td><td>76-84</td><td>165-175</td><td>55-70</td></tr>
+            <tr><td><b>L</b></td><td>84-92</td><td>170-180</td><td>70-80</td></tr>
+            <tr><td><b>XL</b></td><td>92-100</td><td>175-190</td><td>80-90</td></tr>
+            </table>
+            <div class="helptext">*Измерять талию необходимо в месте, где находится резинка трусов!</div>
+
+            <h3>Также Вы можете <div class="red">ориентировочно</div> узнать подходящий Вам <strong>размер</strong> из следующего графика:</h3>
+            <img src="{% static "img/size_table_white.gif" %}" align="middle" alt="График помогающий подобрать размер трусов Calvin Klein согласно росту и весу">
+        </div>
+{% endblock %}
