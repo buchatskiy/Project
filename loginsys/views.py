@@ -26,7 +26,7 @@ def login(request):
             auth.login(request, user)
             request.session['cart_pieces'] = ""
             request.session['cart_sum'] = ""
-            return redirect('/')
+            return redirect('/ALL/page/1/')
         else:
             try:
                 check_user = User.objects.get(username=username)
@@ -40,7 +40,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('/')
+    return redirect('/ALL/page/1/')
 
 
 def register(request):
@@ -72,7 +72,7 @@ def register(request):
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()"""
-            return redirect('/')
+            return redirect('/ALL/page/1/')
         else:
             args['form']=newuser_form
     return render_to_response('register.html', args)
