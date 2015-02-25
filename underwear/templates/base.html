@@ -85,7 +85,7 @@
     {% if size == 'M' and t.availableM == 0 or size == 'L' and t.availableL == 0 or size == 'XL' and t.availableXL == 0 %}
         {% for s, q in series.items %}
                 {% if t.series_id == s %}
-                    <h1>{{ q|floatformat:0 }} грн</h1>
+                    <h1>{{ q.1|floatformat:0 }} грн</h1>
                 {% endif %}
         {% endfor %}
         <div class="button_unavailable"><input class="button" type="submit" value="Нет в наличии"></div>
@@ -93,8 +93,14 @@
         <form action="/buy/" method="get">
             {% for s, q in series.items %}
                 {% if t.series_id == s %}
-                    <h1>{{ q|floatformat:0 }} грн</h1>
-                    <input type="hidden" name="price" id="price" value={{ q|floatformat:0 }}>
+                    {% if username %}
+                        <div class="old_price">{{ q.1|floatformat:0 }} грн</div>
+                        <div class="new_price">{{ q.0|floatformat:0 }} грн</div>
+                        <input type="hidden" name="price" id="price" value={{ q.0|floatformat:0 }}>
+                    {% else %}
+                        <h1>{{ q.1|floatformat:0 }} грн</h1>
+                        <input type="hidden" name="price" id="price" value={{ q.1|floatformat:0 }}>
+                    {% endif %}
                     <input type="hidden" name="series" id="series" value={{ t.series_id }}>
                 {% endif %}
             {% endfor %}

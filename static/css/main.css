@@ -102,7 +102,7 @@ body {
 	color: #C00;
 }
 #korzina a img {
-    width: 5.3%;
+    width: 3.8%;
 	max-width: 100%;
     height: auto;
 }
@@ -316,10 +316,28 @@ body {
 	font-size: 24%;
 	color: #0066cc;
 	position: absolute;
-	left: 20px;
-	bottom: 20px;
+	left: 9%;
+	bottom: 5%;
 	font-weight: 700;
 }
+#content .items .old_price {
+	font-size: 20%;
+	color: #FF0000;
+    text-decoration: line-through;
+	position: absolute;
+	left: 9%;
+	bottom: 8%;
+	font-weight: 700;
+}
+#content .items .new_price {
+	font-size: 24%;
+	color: #0066cc;
+	position: absolute;
+	left: 24%;
+	bottom: 2%;
+	font-weight: 700;
+}
+
 #content .items input {
 	font-size: 18%;
 	display: block;

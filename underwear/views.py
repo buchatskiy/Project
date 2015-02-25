@@ -32,10 +32,7 @@ def main(request, page_number='1', current_series='ALL'):
     for q in all_underwear:
         for p in all_series:
             if str(q.series) == p.name:
-                if auth.get_user(request).username:
-                    s[q.series_id] = round(p.price*0.95, 0) 
-                else:
-                    s[q.series_id] = round(p.price, 0) 
+                s[q.series_id] = [round(p.price*0.95, 0), round(p.price, 0)]
     try:
         args['pieces'] = request.session['cart_pieces']
         args['summ'] = request.session['cart_sum']

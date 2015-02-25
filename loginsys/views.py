@@ -24,13 +24,22 @@ def login(request):
         user=auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            request.session['cart_pieces'] = ""
-            request.session['cart_sum'] = ""
+            try:
+                summ = 0
+                for k in request.session['cart']:
+                    k[5] = round(k[5]*0.95, 0)
+                    k[6] = k[5]*k[4]
+                    summ = summ+k[6]
+            except:
+                return redirect('/ALL/page/1/')
+            request.session['cart'] = request.session['cart']
+            request.session['cart_sum'] = summ
             return redirect('/ALL/page/1/')
         else:
             try:
                 check_user = User.objects.get(username=username)
                 args['login_error'] = 'Неверный пароль'
+                args['username_old'] = username
                 return render_to_response('login.html', args)
             except:
                 args['login_error'] = 'Пользователь не найден'
@@ -72,6 +81,16 @@ def register(request):
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()"""
+            try:
+                summ = 0
+                for k in request.session['cart']:
+                    k[5] = round(k[5]*0.95, 0)
+                    k[6] = k[5]*k[4]
+                    summ = summ+k[6]
+            except:
+                return redirect('/ALL/page/1/')
+            request.session['cart'] = request.session['cart']
+            request.session['cart_sum'] = summ
             return redirect('/ALL/page/1/')
         else:
             args['form']=newuser_form
