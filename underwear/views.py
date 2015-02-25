@@ -29,10 +29,8 @@ def main(request, page_number='1', current_series='ALL'):
     all_series = Series.objects.all()
     current_page = Paginator(all_underwear, 6)
     s = dict()
-    for q in all_underwear:
-        for p in all_series:
-            if str(q.series) == p.name:
-                s[q.series_id] = [round(p.price*0.95, 0), round(p.price, 0)]
+    for p in all_series:
+            s[p.id] = [round(p.price*0.95, 0), round(p.price, 0)]
     try:
         args['pieces'] = request.session['cart_pieces']
         args['summ'] = request.session['cart_sum']
@@ -74,12 +72,9 @@ def buy(request):
                 b = 0
                 pieces = 0
                 summ = 0
-                all_underwear = Underwear.objects.all()
                 all_series = Series.objects.all()
-                for q in all_underwear:
-                    for p in all_series:
-                        if str(q.series) == str(p.name) and q.series_id == int(str(series)):
-                            series_new = p.name
+                for p in all_series:
+                    if p.id == int(str(series)): series_new = p.name
                 try:
                     for k in request.session['cart']:
                         pieces = pieces+k[4]
